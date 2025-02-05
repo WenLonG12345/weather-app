@@ -8,7 +8,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <HomePage />
+      <div className="font-noto-sans">
+        <HomePage />
+      </div>
     </QueryClientProvider>
   );
 }

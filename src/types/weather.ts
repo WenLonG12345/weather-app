@@ -1,5 +1,7 @@
+import { z } from "zod";
+
 export type IWeatherReq = {
-  q: string; 
+  q: string;
   appid: string;
   exclude?: "current" | "minutely" | "hourly" | "daily" | "alerts";
   units?: "standard" | "metric" | "imperial";
@@ -49,3 +51,9 @@ export type IWeatherRes = {
   name?: string;
   cod?: number;
 };
+
+export const SearchWeatherSchema = z.object({
+  cityName: z.string(),
+  countryCode: z.string(),
+});
+export type ISearchWeather = z.infer<typeof SearchWeatherSchema>;

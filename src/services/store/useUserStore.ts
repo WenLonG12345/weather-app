@@ -4,11 +4,11 @@ import { ISearchHistory } from "../../types/history";
 
 interface IUserStore {
   theme?: "light" | "dark";
-  history?: ISearchHistory[];
+  history: ISearchHistory[];
 
   setTheme: (theme: "light" | "dark") => void;
-  addHistory?: (history: ISearchHistory) => void;
-  deleteHistory?: (id: string) => void;
+  addHistory: (history: ISearchHistory) => void;
+  deleteHistory: (id: string) => void;
 }
 
 export const useUserStore = create(

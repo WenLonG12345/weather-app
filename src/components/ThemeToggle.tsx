@@ -8,7 +8,7 @@ const ThemeToggle = () => {
   const setTheme = useUserStore((state) => state.setTheme);
 
   return (
-    <MenuButton onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+    <MenuButton onClick={() => setTheme(theme === "light" ? "dark" : "light")} type="button">
       {theme === "light" ? <IoMoon /> : <IoSunny />}
     </MenuButton>
   );
