@@ -37,19 +37,22 @@ const WeatherResult: React.FC<IWeatherResult> = ({
 
         {result && (
           <>
-            <div className="text-[120px] leading-[120px] text-primary dark:text-white font-semibold">
+            <div className="text-[60px] leading-[60px] md:text-[120px] md:leading-[120px] text-primary dark:text-white font-semibold">
               {`${result?.main?.temp}°`}
             </div>
 
             <div>{`H: ${result?.main?.temp_max}° L: ${result?.main?.temp_min}°`}</div>
 
-            <div className="flex flex-row justify-between items-center">
-              <div>{`${result?.name}, ${result?.sys?.country}`}</div>
-              <div>{formatDateTime(result?.dt)}</div>
-              <div>{`Humidity: ${result?.main?.humidity}%`}</div>
-              {result?.weather && result?.weather.length !== 0 && (
-                <div>{result?.weather[0].main}</div>
-              )}
+            <div className="flex flex-row justify-between items-center text-sm text-[#666666] dark:text-white">
+              <div className="font-semibold text-nowrap">{`${result?.name}, ${result?.sys?.country}`}</div>
+
+              <div className="flex flex-col-reverse md:flex-row gap-1 justify-between items-end">
+                <div>{formatDateTime(result?.dt)}</div>
+                <div>{`Humidity: ${result?.main?.humidity}%`}</div>
+                {result?.weather && result?.weather.length !== 0 && (
+                  <div>{result?.weather[0].main}</div>
+                )}
+              </div>
             </div>
           </>
         )}
@@ -63,7 +66,7 @@ const WeatherResult: React.FC<IWeatherResult> = ({
             history?.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-row justify-between items-center bg-white/40 shadow-md rounded-[20px] px-4 py-5 dark:bg-[#1a1a1a]/50 mb-3"
+                className="flex flex-row justify-between items-center text-xs md:text-base bg-white/40 shadow-md rounded-[20px] px-4 py-5 dark:bg-[#1a1a1a]/50 mb-3"
               >
                 <div className="flex flex-col md:flex-row justify-between md:items-center w-full mr-2">
                   <div>{`${item.cityName} ${item.countryCode}`}</div>

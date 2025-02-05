@@ -54,46 +54,49 @@ const WeatherSearch: React.FC<IWeatherSearch> = ({
         className="flex flex-row gap-[10px] md:gap-[20px] items-center"
         onSubmit={form.handleSubmit(onFormSubmit)}
       >
-        <div className="rounded-[20px] bg-white/20 dark:bg-[#1a1a1a]/50 w-full min-h-[40px] md:min-h-[60px] px-5 py-1">
-          <h3 className="text-black/40 dark:text-white/40 text-sm md:text-base">
-            City
-          </h3>
-          <input
-            type="text"
-            className="outline-none focus:ring-0 focus:border-transparent cursor-text placeholder:text-gray-500 text-black dark:text-white dark:placeholder:text-gray-400 text-sm md:text-base"
-            placeholder="Enter City Name"
-            {...form.register("cityName")}
-          />
-        </div>
-        <div className="rounded-[20px] bg-white/20 dark:bg-[#1a1a1a]/50 w-full min-h-[40px] md:min-h-[60px] px-5 py-1">
-          <h3 className="text-black/40 dark:text-white/40 text-sm md:text-base">
-            Country
-          </h3>
-          <Controller
-            control={form.control}
-            name="countryCode"
-            render={({ field }) => (
-              <select
-                defaultValue={""}
-                className="outline-none focus:ring-0 focus:border-transparent cursor-text text-black dark:text-white text-sm md:text-base"
-                {...field}
-              >
-                <option value="" disabled hidden>
-                  Select
-                </option>
-                {countryList.map((country) => (
-                  <option
-                    value={country.abbreviation}
-                    key={country.abbreviation}
-                    className=""
-                  >
-                    {country.country}
+        <div className="flex flex-col md:flex-row gap-2">
+          <div className="rounded-[20px] bg-white/20 dark:bg-[#1a1a1a]/50 min-h-[40px] md:min-h-[60px] px-5 py-1">
+            <h3 className="text-black/40 dark:text-white/40 text-sm md:text-base">
+              City
+            </h3>
+            <input
+              type="text"
+              className="outline-none focus:ring-0 focus:border-transparent cursor-text placeholder:text-gray-500 text-black dark:text-white dark:placeholder:text-gray-400 text-sm md:text-base"
+              placeholder="Enter City Name"
+              {...form.register("cityName")}
+            />
+          </div>
+          <div className="rounded-[20px] bg-white/20 dark:bg-[#1a1a1a]/50 min-h-[40px] md:min-h-[60px] px-5 py-1">
+            <h3 className="text-black/40 dark:text-white/40 text-sm md:text-base">
+              Country
+            </h3>
+            <Controller
+              control={form.control}
+              name="countryCode"
+              render={({ field }) => (
+                <select
+                  defaultValue={""}
+                  className="outline-none focus:ring-0 focus:border-transparent cursor-text text-black dark:text-white text-sm md:text-base w-full"
+                  {...field}
+                >
+                  <option value="" disabled hidden>
+                    Select
                   </option>
-                ))}
-              </select>
-            )}
-          />
+                  {countryList.map((country) => (
+                    <option
+                      value={country.abbreviation}
+                      key={country.abbreviation}
+                      className=""
+                    >
+                      {country.country}
+                    </option>
+                  ))}
+                </select>
+              )}
+            />
+          </div>
         </div>
+
         <MenuButton type="submit">
           {isLoading ? <Loader /> : <FaSearch />}
         </MenuButton>
@@ -103,7 +106,8 @@ const WeatherSearch: React.FC<IWeatherSearch> = ({
       {isError && (
         <div className="text-red-500 dark:text-red-400 ml-2">
           {form?.formState?.errors?.cityName?.message ||
-            form?.formState?.errors?.countryCode?.message || error?.message}
+            form?.formState?.errors?.countryCode?.message ||
+            error?.message}
         </div>
       )}
     </div>
