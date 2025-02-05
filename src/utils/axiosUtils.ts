@@ -12,6 +12,7 @@ axiosUtils.interceptors.response.use(
     return response.data;
   },
   async (error: AxiosError): Promise<AxiosError | AxiosResponse> => {
+    console.error('@test', {error});
     return Promise.reject(error.response?.data);
   }
 );

@@ -5,21 +5,29 @@ import { FaSearch } from "react-icons/fa";
 import ThemeToggle from "./ThemeToggle";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ISearchWeather, SearchWeatherSchema } from "../types/weather";
+import { ISearchQuery, SearchQuerySchema } from "../types/weather";
 import { useUserStore } from "../services/store/useUserStore";
+import Loader from "./Loader";
 
 interface IWeatherSearch {
-  onWeatherSearch: (data: ISearchWeather) => void;
+  onWeatherSearch: (data: ISearchQuery) => void;
+  isLoading: boolean;
+  error: Error | null;
 }
 
-const WeatherSearch: React.FC<IWeatherSearch> = ({ onWeatherSearch }) => {
+const WeatherSearch: React.FC<IWeatherSearch> = ({
+  onWeatherSearch,
+  isLoading = false,
+  error = null,
+}) => {
   const addHistory = useUserStore((state) => state.addHistory);
 
-  const form = useForm<ISearchWeather>({
-    resolver: zodResolver(SearchWeatherSchema),
+  const form = useForm<ISearchQuery>({
+    resolver: zodResolver(SearchQuerySchema),
   });
 
-  const onFormSubmit = (data: ISearchWeather) => {
+  const onFormSubmit = (data: ISearchQuery) => {
+    if (isLoading) return;
     addHistory({
       ...data,
       id: new Date().getTime().toString(),
@@ -33,10 +41,12 @@ const WeatherSearch: React.FC<IWeatherSearch> = ({ onWeatherSearch }) => {
       cityName: "",
       countryCode: "",
     });
-  }, [form.formState.isSubmitSuccessful]);
+  }, [form, form.formState.isSubmitSuccessful]);
 
   const isError =
-    form.formState.errors.cityName || form.formState.errors.countryCode;
+    form.formState.errors.cityName ||
+    form.formState.errors.countryCode ||
+    error;
 
   return (
     <div>
@@ -85,7 +95,7 @@ const WeatherSearch: React.FC<IWeatherSearch> = ({ onWeatherSearch }) => {
           />
         </div>
         <MenuButton type="submit">
-          <FaSearch />
+          {isLoading ? <Loader /> : <FaSearch />}
         </MenuButton>
         <ThemeToggle />
       </form>
@@ -93,7 +103,7 @@ const WeatherSearch: React.FC<IWeatherSearch> = ({ onWeatherSearch }) => {
       {isError && (
         <div className="text-red-500 dark:text-red-400 ml-2">
           {form?.formState?.errors?.cityName?.message ||
-            form?.formState?.errors?.countryCode?.message}
+            form?.formState?.errors?.countryCode?.message || error?.message}
         </div>
       )}
     </div>

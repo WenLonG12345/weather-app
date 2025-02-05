@@ -52,8 +52,8 @@ export type IWeatherRes = {
   cod?: number;
 };
 
-export const SearchWeatherSchema = z.object({
+export const SearchQuerySchema = z.object({
   cityName: z.string(),
   countryCode: z.string(),
 });
-export type ISearchWeather = z.infer<typeof SearchWeatherSchema>;
+export type ISearchQuery = z.infer<typeof SearchQuerySchema>;
