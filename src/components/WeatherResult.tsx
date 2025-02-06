@@ -29,7 +29,7 @@ const WeatherResult: React.FC<IWeatherResult> = ({
           className="w-[150px] h-[150px] md:w-[300px] md:h-[300px] absolute right-0 top-[-50px] md:top-[-120px]"
         />
       )}
-      <div className="rounded-[20px] md:rounded-[40px] bg-white/30 dark:bg-[#1a1a1a]/30 p-5 md:p-10 border-[1px] border-white dark:border-none mt-[60px] md:mt-[150px]">
+      <div className="rounded-[20px] md:rounded-[40px] bg-white/30 dark:bg-[rgba(26, 26, 26, 0.3)] p-5 md:p-10 border-[1px] border-white dark:border-none mt-[60px] md:mt-[150px]">
         <div className="font-semibold">Today's Weather</div>
 
         {result ? (
@@ -54,7 +54,7 @@ const WeatherResult: React.FC<IWeatherResult> = ({
           </>
         ) : (
           <div className="text-gray-500 dark:text-gray-200 flex flex-row gap-2 items-center">
-            <FaCircleInfo size={20}/>
+            <FaCircleInfo size={20} />
             <div>Please search weather by city name and country</div>
           </div>
         )}
