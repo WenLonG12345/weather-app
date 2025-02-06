@@ -14,7 +14,7 @@ const SearchHistory: React.FC<ISearchHistory> = ({ onWeatherSearch }) => {
   const history = useUserStore((state) => state.history);
   const deleteHistory = useUserStore((state) => state.deleteHistory);
   return (
-    <div className="bg-white/20 dark:bg-[#1a1a1a] py-5 px-4 rounded-[20px] mt-10">
+    <div className="bg-white/20 dark:bg-grayblack-30 py-5 px-4 rounded-[20px] mt-10">
       <div className="mb-3">Search History</div>
 
       {isEmpty(history) ? (
@@ -23,7 +23,7 @@ const SearchHistory: React.FC<ISearchHistory> = ({ onWeatherSearch }) => {
         history?.map((item) => (
           <div
             key={item.id}
-            className="flex flex-row justify-between items-center text-xs md:text-base bg-white/40 shadow-md rounded-[20px] px-4 py-5 dark:bg-[#1a1a1a] mb-3"
+            className="flex flex-row justify-between items-center text-xs md:text-base bg-white/40 shadow-md rounded-[20px] px-4 py-5 dark:bg-grayblack-50 mb-3"
           >
             <div className="flex flex-col md:flex-row justify-between md:items-center w-full mr-2">
               <div>{`${item.cityName} ${item.countryCode}`}</div>
@@ -32,7 +32,7 @@ const SearchHistory: React.FC<ISearchHistory> = ({ onWeatherSearch }) => {
 
             <div className="flex flex-row gap-2 items-center">
               <button
-                className="bg-white dark:bg-[#1a1a1a] hover:bg-gray-100 dark:hover:bg-[#454545] rounded-full p-2 text-[#93919e] cursor-pointer"
+                className="bg-white dark:bg-grayblack-50 hover:bg-gray-100 dark:hover:bg-[#454545] rounded-full p-2 text-[#93919e] cursor-pointer"
                 onClick={() =>
                   onWeatherSearch({
                     cityName: item.cityName,
@@ -43,7 +43,7 @@ const SearchHistory: React.FC<ISearchHistory> = ({ onWeatherSearch }) => {
                 <IoMdSearch size={25} />
               </button>
               <button
-                className="bg-white dark:bg-[#1a1a1a] hover:bg-gray-100 dark:hover:bg-[#454545] rounded-full p-2 text-[#93919e] cursor-pointer"
+                className="bg-white dark:bg-grayblack-50 hover:bg-gray-100 dark:hover:bg-[#454545] rounded-full p-2 text-[#93919e] cursor-pointer"
                 onClick={() => deleteHistory(item.id)}
               >
                 <AiFillDelete size={25} />

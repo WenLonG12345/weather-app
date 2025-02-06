@@ -5,6 +5,8 @@
 
 @theme {
   --color-primary: #6C40B5;
+  --color-grayblack-50: color-mix(in oklab, #1a1a1a 50%, transparent);
+  --color-grayblack-30: color-mix(in oklab, #1a1a1a 30%, transparent);
   --color-primary-hover: #593C9E;
   --font-noto-sans: "Noto Sans", sans-serif;
 }
