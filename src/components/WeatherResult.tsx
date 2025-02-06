@@ -53,7 +53,7 @@ const WeatherResult: React.FC<IWeatherResult> = ({
             </div>
           </>
         ) : (
-          <div className="text-gray-500 dark:text-gray-400 flex flex-row gap-2 items-center">
+          <div className="text-gray-500 dark:text-gray-200 flex flex-row gap-2 items-center">
             <FaCircleInfo size={20}/>
             <div>Please search weather by city name and country</div>
           </div>
