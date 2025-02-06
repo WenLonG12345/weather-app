@@ -54,8 +54,8 @@ const WeatherSearch: React.FC<IWeatherSearch> = ({
         className="flex flex-row gap-[10px] md:gap-[20px] items-center"
         onSubmit={form.handleSubmit(onFormSubmit)}
       >
-        <div className="flex flex-col md:flex-row gap-2">
-          <div className="rounded-[20px] bg-white/20 dark:bg-[#1a1a1a]/50 min-h-[40px] md:min-h-[60px] px-5 py-1">
+        <div className="flex flex-col md:flex-row gap-2 w-full">
+          <div className="rounded-[20px] bg-white/20 dark:bg-[#1a1a1a]/50 min-h-[40px] md:min-h-[60px] px-5 py-1 w-full">
             <h3 className="text-black/40 dark:text-white/40 text-sm md:text-base">
               City
             </h3>

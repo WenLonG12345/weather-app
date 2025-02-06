@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import WeatherResult from "../components/WeatherResult";
-import WeatherSearch from "../components/WeatherSearch";
+import WeatherSearch from "../components/SearchBar";
 import { useState } from "react";
 import { ISearchQuery } from "../types/weather";
 import { getCurrentWeather } from "../services/api/weather";
