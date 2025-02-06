@@ -55,7 +55,7 @@ const WeatherSearch: React.FC<IWeatherSearch> = ({
         onSubmit={form.handleSubmit(onFormSubmit)}
       >
         <div className="flex flex-col md:flex-row gap-2 w-full">
-          <div className="rounded-[20px] bg-white/20 dark:bg-grayblack-50 min-h-[40px] md:min-h-[60px] px-5 py-1 w-full">
+          <div className="rounded-[20px] bg-white/20 dark:bg-[#1A1A1A80] min-h-[40px] md:min-h-[60px] px-5 py-1 w-full">
             <h3 className="text-black/40 dark:text-white/40 text-sm md:text-base">
               City
             </h3>
@@ -66,7 +66,7 @@ const WeatherSearch: React.FC<IWeatherSearch> = ({
               {...form.register("cityName")}
             />
           </div>
-          <div className="rounded-[20px] bg-white/20 dark:bg-grayblack-50 min-h-[40px] md:min-h-[60px] px-5 py-1">
+          <div className="rounded-[20px] bg-white/20 dark:bg-[#1A1A1A80] min-h-[40px] md:min-h-[60px] px-5 py-1">
             <h3 className="text-black/40 dark:text-white/40 text-sm md:text-base">
               Country
             </h3>

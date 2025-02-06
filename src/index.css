@@ -4,25 +4,23 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
-  --color-primary: #6C40B5;
-  --color-grayblack-50: color-mix(in oklab, #1a1a1a 50%, transparent);
-  --color-grayblack-30: color-mix(in oklab, #1a1a1a 30%, transparent);
-  --color-primary-hover: #593C9E;
+  --color-primary: #6c40b5;
+  --color-primary-hover: #593c9e;
   --font-noto-sans: "Noto Sans", sans-serif;
 }
 
 @utility container {
   padding-inline: 10px;
   margin-inline: auto;
-  
+
   @variant sm {
     padding-inline: 20px;
   }
-  
+
   @variant lg {
     padding-inline: 80px;
   }
-  
+
   @variant xl {
     padding-inline: 300px;
   }
